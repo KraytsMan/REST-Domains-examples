@@ -1,17 +1,43 @@
-package rest.service.services;
+package rest.service.plug;
 
-public class Goods {
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    private long id;
+import javax.persistence.*;
+import java.io.Serializable;
 
+
+@Entity
+@Table(name = "Goods")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+public class Goods implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @JsonProperty("id")
+    private int id;
+
+    @Column(name = "name")
+    @JsonProperty("name")
     private String name;
 
+    @Column(name = "description")
+    @JsonProperty("description")
     private String description;
 
+    @Column(name = "amount")
+    @JsonProperty("amount")
     private int amount;
 
+    @Column(name = "price")
+    @JsonProperty("price")
     private int price;
 
+    public Goods() {
+    }
+
+    @JsonCreator
     public Goods(GoodsBuilder builder) {
         this.id = builder.getId();
         this.name = builder.getName();
@@ -20,7 +46,7 @@ public class Goods {
         this.price = builder.getPrice();
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -40,7 +66,7 @@ public class Goods {
         this.price = price;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -72,10 +98,9 @@ public class Goods {
     }
 
 
-    public static class GoodsBuilder
-    {
+    public static class GoodsBuilder {
 
-        private long id;
+        private int id;
 
         private String name;
 
@@ -85,7 +110,7 @@ public class Goods {
 
         private int price;
 
-        public long getId() {
+        public int getId() {
             return id;
         }
 
@@ -105,39 +130,37 @@ public class Goods {
             return price;
         }
 
-        public GoodsBuilder id(long id)
-        {
+        public GoodsBuilder id(int id) {
             this.id = id;
             return this;
 
         }
-        public GoodsBuilder name(String name)
-        {
+
+        public GoodsBuilder name(String name) {
             this.name = name;
             return this;
 
         }
-        public GoodsBuilder description(String description)
-        {
+
+        public GoodsBuilder description(String description) {
             this.description = description;
             return this;
 
         }
-        public GoodsBuilder amount(int amount)
-        {
+
+        public GoodsBuilder amount(int amount) {
             this.amount = amount;
             return this;
 
         }
-        public GoodsBuilder price(int price)
-        {
+
+        public GoodsBuilder price(int price) {
             this.price = price;
             return this;
 
         }
 
-        public Goods build()
-        {
+        public Goods build() {
             return new Goods(this);
         }
     }

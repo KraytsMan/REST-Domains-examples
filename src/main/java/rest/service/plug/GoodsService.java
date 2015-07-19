@@ -1,9 +1,11 @@
-package rest.service.services;
+package rest.service.plug;
 
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service("goodsservice")
 public class GoodsService {
@@ -31,11 +33,11 @@ public class GoodsService {
                 .id(2)
                 .name("HTC One Max 803n Silver")
                 .description("Экран 5.9 (1920x1080, сенсорный)" +
-                                " Super LCD3 / моноблок / Qualcomm Snapdragon 600 (1.7 ГГц)" +
-                                " / камера 4 Мп + фронтальная 2.1 Мп / Bluetooth 4.0 /" +
-                                " Wi-Fi / NFC / MHL / RAM 2 ГБ / 16ГБ встроенной памяти" +
-                                " / разъем 3.5 мм / 3G / GPS + GLONASS / Android 4.3 + HTC Sense 5.5" +
-                                " / 164.5 x 82.5 x 10.29 мм / 217 г / серебристый")
+                        " Super LCD3 / моноблок / Qualcomm Snapdragon 600 (1.7 ГГц)" +
+                        " / камера 4 Мп + фронтальная 2.1 Мп / Bluetooth 4.0 /" +
+                        " Wi-Fi / NFC / MHL / RAM 2 ГБ / 16ГБ встроенной памяти" +
+                        " / разъем 3.5 мм / 3G / GPS + GLONASS / Android 4.3 + HTC Sense 5.5" +
+                        " / 164.5 x 82.5 x 10.29 мм / 217 г / серебристый")
                 .amount(4)
                 .price(9784)
                 .build();
@@ -57,36 +59,33 @@ public class GoodsService {
         goodsList.add(goods);
     }
 
-    public Goods get(long id)
-    {
+    public Goods get(long id) {
         logger.info("Get goods by id");
-        for (Goods g: goodsList){
-            if(g.getId() == id) {return g;}
+        for (Goods g : goodsList) {
+            if (g.getId() == id) {
+                return g;
+            }
         }
         return null;
     }
 
-    public ArrayList<Goods> getAll()
-    {
+    public ArrayList<Goods> getAll() {
         logger.info("Get goods list");
         return goodsList;
     }
 
-    public Goods add(Goods goods)
-    {
+    public Goods add(Goods goods) {
         logger.info("Add goods");
         try {
             goodsList.add(goods);
             return goodsList.get(goodsList.size());
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.info(e.getMessage());
             return null;
         }
     }
 
-    public Goods update(Goods goods)
-    {
+    public Goods update(Goods goods) {
         logger.info("Update goods");
         try {
             for (Goods g : goodsList) {
@@ -98,16 +97,14 @@ public class GoodsService {
                     return g;
                 }
             }
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.info(e.getMessage());
-            return  null;
+            return null;
         }
         return null;
     }
 
-    public Goods delete(Goods goods)
-    {
+    public Goods delete(Goods goods) {
         logger.info("Delete goods");
         try {
             for (int i = 0; i < goodsList.size(); i++) {
@@ -117,12 +114,29 @@ public class GoodsService {
                     return g;
                 }
             }
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             logger.info(e.getMessage());
-            return  null;
+            return null;
         }
         return null;
     }
+
+    public Goods search(String data) {
+        logger.info("Search goods by string fragments");
+        try {
+            for (Goods g : goodsList) {
+                Pattern pattern = Pattern.compile(data, Pattern.CASE_INSENSITIVE);
+                Matcher matcher = pattern.matcher(g.getName());
+                if (matcher.find()) {
+                    return g;
+                }
+            }
+        }catch (Exception e) {
+            logger.info(e.getMessage());
+            return null;
+        }
+        return null;
+    }
+
 
 }
