@@ -21,7 +21,9 @@ public class GoodsControllerHibernate {
     @Autowired(required = true)
     GoodsHibernateDAO dao;
 
-    @RequestMapping(value = "/goods/{id}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/{id}",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     Goods getGoods(@PathVariable int id) {
@@ -29,7 +31,9 @@ public class GoodsControllerHibernate {
         return dao.get(id);
     }
 
-    @RequestMapping(value = "/goods", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     List<Goods> getAllGoods() {
@@ -37,23 +41,29 @@ public class GoodsControllerHibernate {
         return dao.getAll();
     }
 
-    @RequestMapping(value = "/goods", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods",
+            method = RequestMethod.POST,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
-    int putGoods(@RequestBody String s) throws IOException {
+    int putGoods(@RequestBody Goods goods) throws IOException {
         logger.info("Goods: save or update using hibernate");
-        return dao.put(deserialize(s));
+        return dao.put(goods);
     }
 
-    @RequestMapping(value = "/goods", method = RequestMethod.DELETE, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods",
+            method = RequestMethod.DELETE,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
-    int removeGoods(@RequestBody String s) throws IOException {
+    int removeGoods(@RequestBody Goods goods) throws IOException {
         logger.info("Goods: save or update using hibernate");
-        return dao.delete(deserialize(s));
+        return dao.delete(goods);
     }
 
-    @RequestMapping(value = "/goods/page", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/page",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     List<Goods> goodsPagination(
@@ -63,7 +73,9 @@ public class GoodsControllerHibernate {
         return dao.pagination(page, amount);
     }
 
-    @RequestMapping(value = "/goods/asc", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/asc",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     List<Goods> goodsASC(
@@ -72,7 +84,9 @@ public class GoodsControllerHibernate {
         return dao.sortASC(field);
     }
 
-    @RequestMapping(value = "/goods/desc", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/desc",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     List<Goods> goodsDESC(
@@ -81,7 +95,9 @@ public class GoodsControllerHibernate {
         return dao.sortDESC(field);
     }
 
-    @RequestMapping(value = "/goods/search/{name}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/search/{name}",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     List<Goods> goodsSearchByName(
@@ -90,7 +106,9 @@ public class GoodsControllerHibernate {
         return dao.search(name);
     }
 
-    @RequestMapping(value = "/goods/search", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/search",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     List<Goods> goodsSearchPriceBetween(
@@ -100,7 +118,9 @@ public class GoodsControllerHibernate {
         return dao.searchBetween(from, to);
     }
 
-    @RequestMapping(value = "/goods/search/{name}/scope", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/search/{name}/scope",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public
     @ResponseBody
     List<Goods> goodsSearchByNameBetweenPrice(
@@ -110,11 +130,4 @@ public class GoodsControllerHibernate {
         logger.info("Goods: search by price using between, using hibernate");
         return dao.searchByNameWithBetween(name, from, to);
     }
-
-    public Goods deserialize(String s) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(s, Goods.class);
-    }
-
-
 }

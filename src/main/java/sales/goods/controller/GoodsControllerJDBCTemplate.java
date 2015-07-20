@@ -19,7 +19,9 @@ public class GoodsControllerJDBCTemplate {
 
     protected static Logger logger = Logger.getLogger(GoodsControllerJDBCTemplate.class.getName());
 
-    @RequestMapping(value = "/goods", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public @ResponseBody
     List<Goods> getAllGoods()
     {
@@ -27,7 +29,9 @@ public class GoodsControllerJDBCTemplate {
         return dao.getAll();
     }
 
-    @RequestMapping(value = "/goods/{id}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/goods/{id}",
+            method = RequestMethod.GET,
+            produces = "application/json; charset=UTF-8")
     public @ResponseBody
     Goods getGoods(@PathVariable int id)
     {
@@ -35,21 +39,22 @@ public class GoodsControllerJDBCTemplate {
         return dao.get(id);
     }
 
-    @RequestMapping(value = "/goods", method = RequestMethod.POST)
-    public @ResponseBody int setGoods(@RequestBody String goods) throws IOException {
+    @RequestMapping(value = "/goods",
+            method = RequestMethod.POST)
+    public @ResponseBody int setGoods(@RequestBody Goods goods) throws IOException {
         logger.info("Goods set goods");
-        logger.info(deserialize(goods).toString());
-        return dao.put(deserialize(goods));
+        return dao.put(goods);
     }
 
-    @RequestMapping(value = "/goods", method = RequestMethod.PUT)
-    public @ResponseBody int updateGoods(@RequestBody String goods) throws IOException {
+    @RequestMapping(value = "/goods",
+            method = RequestMethod.PUT)
+    public @ResponseBody int updateGoods(@RequestBody Goods goods) throws IOException {
         logger.info("Goods update goods");
-        logger.info(deserialize(goods).toString());
-        return dao.update(deserialize(goods));
+        return dao.update(goods);
     }
 
-    @RequestMapping(value = "/goods/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/goods/{id}",
+            method = RequestMethod.DELETE)
     public @ResponseBody int deleteGoods(@PathVariable int id) throws IOException {
         logger.info("Goods delete goods");
         return dao.delete(id);
@@ -64,10 +69,4 @@ public class GoodsControllerJDBCTemplate {
         logger.info("Goods get page of goods by asc");
         return dao.getPageByAsc(field, count, number);
     }
-
-    public Goods deserialize(String s) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(s, Goods.class);
-    }
-
 }
