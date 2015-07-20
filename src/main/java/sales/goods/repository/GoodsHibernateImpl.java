@@ -1,10 +1,11 @@
-package rest.service.jdbctemplate;
+package sales.goods.repository;
 
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import rest.service.plug.Goods;
+import sales.goods.domain.Goods;
+import sales.goods.service.GoodsJDBCTemplateDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public class GoodsImpl extends JdbcDaoSupport implements GoodsDAO {
+public class GoodsHibernateImpl extends JdbcDaoSupport implements GoodsJDBCTemplateDAO {
 
     public Goods get(int id) {
         String sql = "SELECT * FROM Goods " +

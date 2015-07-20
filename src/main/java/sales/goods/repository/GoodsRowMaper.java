@@ -1,7 +1,7 @@
-package rest.service.jdbctemplate;
+package sales.goods.repository;
 
 import org.springframework.jdbc.core.RowMapper;
-import rest.service.plug.Goods;
+import sales.goods.domain.Goods;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,10 +1,10 @@
-package rest.service.jdbctemplate;
+package sales.goods.service;
 
-import rest.service.plug.Goods;
+import sales.goods.domain.Goods;
 
 import java.util.List;
 
-public interface GoodsDAO {
+public interface GoodsJDBCTemplateDAO {
 
     Goods get(int id);
 

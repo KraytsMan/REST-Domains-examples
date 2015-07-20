@@ -1,19 +1,15 @@
-package rest.service.hibernate;
+package sales.goods.repository;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.hql.internal.ast.util.SessionFactoryHelper;
 import org.springframework.stereotype.Repository;
-import rest.service.jdbctemplate.GoodsDAO;
-import rest.service.jdbctemplate.GoodsImpl;
-import rest.service.plug.Goods;
+import sales.goods.domain.Goods;
+import sales.goods.service.AbstractDao;
+import sales.goods.service.GoodsHibernateDAO;
 
 import java.util.List;
 
 @Repository("goodsHiberDAO")
-public class GoodsHiberImpl extends AbstractDao implements GoodsHiberDAO {
+public class GoodsHiberImpl extends AbstractDao implements GoodsHibernateDAO {
 
 
     public Goods get(int id) {

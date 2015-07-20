@@ -1,10 +1,10 @@
-package rest.service.hibernate;
+package sales.goods.service;
 
-import rest.service.plug.Goods;
+import sales.goods.domain.Goods;
 
 import java.util.List;
 
-public interface GoodsHiberDAO {
+public interface GoodsHibernateDAO {
 
     Goods get(int id);
 

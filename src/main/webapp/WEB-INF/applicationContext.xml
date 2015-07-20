@@ -19,7 +19,9 @@
 
     <!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
      For example @Controller and @Service. Make sure to set the correct base-package-->
-    <context:component-scan base-package="rest.service"/>
+    <context:component-scan base-package="sales.goods"/>
+
+    <import resource="spring-servlet.xml"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!-- Configures the annotation-driven Spring MVC Controller programming model.

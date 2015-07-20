@@ -1,4 +1,4 @@
-package rest.service.hibernate;
+package sales.goods.service;
 
 
 import org.hibernate.Session;

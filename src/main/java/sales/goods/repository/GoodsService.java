@@ -1,13 +1,14 @@
-package rest.service.plug;
+package sales.goods.repository;
 
 import org.springframework.stereotype.Service;
+import sales.goods.domain.Goods;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Service("goodsservice")
+@Service("goodsService")
 public class GoodsService {
 
     protected static Logger logger = Logger.getLogger(GoodsService.class.getName());

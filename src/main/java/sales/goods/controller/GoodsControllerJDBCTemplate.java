@@ -1,9 +1,10 @@
-package rest.service.jdbctemplate;
+package sales.goods.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import rest.service.plug.Goods;
+import sales.goods.domain.Goods;
+import sales.goods.service.GoodsJDBCTemplateDAO;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,12 +12,12 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/jdbctemplate")
-public class GoodsController {
+public class GoodsControllerJDBCTemplate {
 
     @Autowired
-    GoodsDAO dao;
+    GoodsJDBCTemplateDAO dao;
 
-    protected static Logger logger = Logger.getLogger(GoodsController.class.getName());
+    protected static Logger logger = Logger.getLogger(GoodsControllerJDBCTemplate.class.getName());
 
     @RequestMapping(value = "/goods", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
     public @ResponseBody

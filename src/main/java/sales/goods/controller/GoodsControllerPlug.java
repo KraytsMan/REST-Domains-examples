@@ -1,6 +1,8 @@
-package rest.service.plug;
+package sales.goods.controller;
 
 import org.springframework.web.bind.annotation.*;
+import sales.goods.domain.Goods;
+import sales.goods.repository.GoodsService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.logging.Logger;
 @RequestMapping("/goods")
 public class GoodsControllerPlug {
 
-    @Resource(name = "goodsservice")
+    @Resource(name = "goodsService")
     private GoodsService service;
 
     protected static Logger logger = Logger.getLogger(GoodsControllerPlug.class.getName());
