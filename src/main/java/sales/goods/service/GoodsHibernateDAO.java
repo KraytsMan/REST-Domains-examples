@@ -15,4 +15,15 @@ public interface GoodsHibernateDAO {
     int delete(Goods goods);
 
     public List<Goods> pagination(int page, int amount);
+
+    public List<Goods> sortASC(String field);
+
+    public List<Goods> sortDESC(String field);
+
+    public List<Goods> search(String name);
+
+    public List<Goods> searchBetween(int from, int to);
+
+    public List<Goods> searchByNameWithBetween(String name, int from, int to);
+
 }
