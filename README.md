@@ -1,4 +1,44 @@
 # REST-Domains-examples
+
+
+
+### JAVA steps:
+***************************************************
+
+1. Install java SE 1.8.
+
+2. Set System Variable JAVA_HOME="path to your java directory"
+
+### Maven steps:
+***************************************************
+
+1. Install apache-maven-3.2.5.
+
+2. Set System Variable MAVEN_HOME="path to your maven directory"
+
+### Database steps:
+***************************************************
+
+1. Install MySql Server 5.5
+
+2. Create database with name = "trade"
+
+3. Create table with name = "Goods" and set charset for table utf8 - utf8_bin
+
+4. Set columns into table with such names and types
+
+id INT
+
+name Varchar(45)
+
+description TEXT
+
+amount INT
+
+price INT
+
+5. Apply changes.
+
 Links for using:
 ### Links to rest controller that's using hibernate
 ***************************************************
