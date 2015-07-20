@@ -43,7 +43,8 @@ public class GoodsControllerHibernate {
 
     @RequestMapping(value = "/goods",
             method = RequestMethod.POST,
-            produces = "application/json; charset=UTF-8")
+            produces = "application/json; charset=UTF-8",
+            consumes = "application/json")
     public
     @ResponseBody
     int putGoods(@RequestBody Goods goods) throws IOException {
