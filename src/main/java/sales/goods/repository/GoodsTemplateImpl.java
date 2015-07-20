@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public class GoodsHibernateImpl extends JdbcDaoSupport implements GoodsJDBCTemplateDAO {
+public class GoodsTemplateImpl extends JdbcDaoSupport implements GoodsJDBCTemplateDAO {
 
     public Goods get(int id) {
         String sql = "SELECT * FROM Goods " +
