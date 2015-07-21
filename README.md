@@ -43,52 +43,52 @@ Links for using:
 ### Links to rest controller that's using hibernate
 ***************************************************
 
-1. http://localhost:8080/Practice/service/hibernate/goods method = GET -- get goods list 
+1. http://localhost:8080/Practice/service/hibernate/good method = GET -- get good list 
 
-2. http://localhost:8080/Practice/service/hibernate/goods/{id} method = GET -- get goods by id
+2. http://localhost:8080/Practice/service/hibernate/good/{id} method = GET -- get good by id
 
-3. http://localhost:8080/Practice/service/hibernate/goods method = POST -- save or update goods
+3. http://localhost:8080/Practice/service/hibernate/good method = POST -- save or update good
 
-4. http://localhost:8080/Practice/service/hibernate/goods method = DELETE -- delete goods
+4. http://localhost:8080/Practice/service/hibernate/good method = DELETE -- delete good
 
-5. http://localhost:8080/Practice/service/hibernate/goods/page?page=&amount= method = GET -- pagination
+5. http://localhost:8080/Practice/service/hibernate/good/page?page=&amount= method = GET -- pagination
 
-6. http://localhost:8080/Practice/service/hibernate/goods/asc?field= method = GET -- sorting goods list by
+6. http://localhost:8080/Practice/service/hibernate/good/asc?field= method = GET -- sorting good list by
  field in table (id, name, amount, price) by asc
  
-7. http://localhost:8080/Practice/service/hibernate/goods/desc?field= method = GET -- sorting goods list by
+7. http://localhost:8080/Practice/service/hibernate/good/desc?field= method = GET -- sorting good list by
   field in table (id, name, amount, price) by desc
   
-8. http://localhost:8080/Practice/service/hibernate/goods/search/{name} method = GET -- search goods by 
+8. http://localhost:8080/Practice/service/hibernate/good/search/{name} method = GET -- search good by 
   name with ignore case
 
-9. http://localhost:8080/Practice/service/hibernate/goods/search?from=&to= method = GET -- search any goods which
+9. http://localhost:8080/Practice/service/hibernate/good/search?from=&to= method = GET -- search any good which
   are in scope from and to
   
-10. http://localhost:8080/Practice/service/hibernate/goods/search/{name}/scope?from=&to= method = GET
- -- search goods by name which are in scope from and to
+10. http://localhost:8080/Practice/service/hibernate/good/search/{name}/scope?from=&to= method = GET
+ -- search good by name which are in scope from and to
  
 ### Links to rest controller that's using jdbcTemplate
 ***************************************************
 
-1. http://localhost:8080/Practice/service/jdbctemplate/goods method = GET -- get goods list 
+1. http://localhost:8080/Practice/service/jdbctemplate/good method = GET -- get good list 
 
-2. http://localhost:8080/Practice/service/jdbctemplate/goods/{id} method = GET -- get goods by id
+2. http://localhost:8080/Practice/service/jdbctemplate/good/{id} method = GET -- get good by id
 
-3. http://localhost:8080/Practice/service/jdbctemplate/goods method = POST -- save or update goods
+3. http://localhost:8080/Practice/service/jdbctemplate/good method = POST -- save or update good
 
-4. http://localhost:8080/Practice/service/jdbctemplate/goods method = PUT -- update goods
+4. http://localhost:8080/Practice/service/jdbctemplate/good method = PUT -- update good
 
-5. http://localhost:8080/Practice/service/jdbctemplate/goods/{id} method = DELETE -- delete goods by id
+5. http://localhost:8080/Practice/service/jdbctemplate/good/{id} method = DELETE -- delete good by id
 
-6. http://localhost:8080/Practice/service/jdbctemplate/goods/asc?count=&number=&field= method = GET --
+6. http://localhost:8080/Practice/service/jdbctemplate/good/asc?count=&number=&field= method = GET --
  pagination
  
 ### Links to rest controller that's using plug
 ***************************************************
 
-1. http://localhost:8080/Practice/service/goods method = GET -- get goods list 
+1. http://localhost:8080/Practice/service/good method = GET -- get good list 
 
-2. http://localhost:8080/Practice/service/goods/{id} method = GET -- get goods by id
+2. http://localhost:8080/Practice/service/good/{id} method = GET -- get good by id
 
-3. http://localhost:8080/Practice/service/goods/search?name= method = GET -- search goods by name
+3. http://localhost:8080/Practice/service/good/search?name= method = GET -- search good by name

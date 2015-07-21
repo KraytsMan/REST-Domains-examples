@@ -9,9 +9,9 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "Goods")
+@Table(name = "tbl_good")
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class Goods implements Serializable {
+public class Good implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -34,11 +34,11 @@ public class Goods implements Serializable {
     @JsonProperty("price")
     private int price;
 
-    public Goods() {
+    public Good() {
     }
 
     @JsonCreator
-    public Goods(GoodsBuilder builder) {
+    public Good(GoodsBuilder builder) {
         this.id = builder.getId();
         this.name = builder.getName();
         this.description = builder.getDescription();
@@ -88,7 +88,7 @@ public class Goods implements Serializable {
 
     @Override
     public String toString() {
-        return "Goods{" +
+        return "Good{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
@@ -160,8 +160,8 @@ public class Goods implements Serializable {
 
         }
 
-        public Goods build() {
-            return new Goods(this);
+        public Good build() {
+            return new Good(this);
         }
     }
 
